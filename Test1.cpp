@@ -88,7 +88,7 @@ unsigned int load_texture(const char* path) {
 	if (data) {
 		GLenum format;
 		if (nrComponents == 1)
-			format == GL_RED;
+			format = GL_RED;
 		else if (nrComponents == 3)
 			format = GL_RGB;
 		else if (nrComponents == 4)

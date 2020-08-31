@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
-list(APPEND EXTRA_LIBS glad)
 list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/glad")
 list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/include")
 
@@ -19,5 +18,10 @@ file(COPY ${PROJECT_SOURCE_DIR}/resources DESTINATION .)
 
 configure_file(TutorialConfig.h.in TutorialConfig.h)
 
+
 target_include_directories(Tutorial PUBLIC "${PROJECT_BINARY_DIR}" ${EXTRA_INCLUDES})
-target_link_libraries(Tutorial ${EXTRA_LIBS} ${PROJECT_SOURCE_DIR}/libs/glfw3.lib)
+target_link_libraries(Tutorial glad)
+target_link_libraries(Tutorial ${PROJECT_SOURCE_DIR}/libs/glfw3.lib)
+target_link_libraries(Tutorial ${PROJECT_SOURCE_DIR}/libs/assimp-vc140-mt.lib)
+
+
